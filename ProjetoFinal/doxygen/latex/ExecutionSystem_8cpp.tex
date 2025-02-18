@@ -1,0 +1,680 @@
+\doxysection{src/\+Execution\+System.cpp File Reference}
+\hypertarget{ExecutionSystem_8cpp}{}\label{ExecutionSystem_8cpp}\index{src/ExecutionSystem.cpp@{src/ExecutionSystem.cpp}}
+{\ttfamily \#include "{}../include/\+Execution\+System.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$csignal$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a330c2b7eb11fea838b1663f2dcc4b6b9}{initialize\+Signal\+Handler}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o manipulador de sinal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}} ()
+\begin{DoxyCompactList}\small\item\em Exibe o menu principal com as opções que o usuário pode explorar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}{clear\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em Limpa a tela do console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_ae4cf5881689d7883d7020bcb88d9b846}{load\+Game\+Data}} (\mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos jogadores de um arquivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a87d8af85d5046e46411c601b194a1306}{save\+Game\+Data}} (\mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos jogadores em um arquivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_aa025f45ed88b3ae4067ae664cf12f853}{handle\+Signal}} (int signal)
+\begin{DoxyCompactList}\small\item\em Função que salva os dados do jogo quando o programa é interrompido (Ctrl+C) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ExecutionSystem_8cpp_a46b108efd27e37a882ecae5a6e03800c}{valid\+String}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Valida se é uma string válida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_ab5318d11ae56381b668ae35e768d8430}{register\+Command}} (string nickname, string name, \mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Registra um novo jogador no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a60a06a90be8fee90c3561fbe1c1da472}{velha\+Execution}} (string nickname\+One, string nickname\+Two, \mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Executa o jogo da velha entre dois jogadores cadastrados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a2cffa2e4e141898fd7be03fc1aa35872}{lig4\+Execution}} (string nickname\+One, string nickname\+Two, \mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Executa o jogo \doxylink{classLig4}{Lig4} entre dois jogadores cadastrados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a2c3fd8f8ad7c97af891768447e6e0ff0}{reversi\+Execution}} (string nickname\+One, string nickname\+Two, \mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Executa o jogo \doxylink{classReversi}{Reversi} entre dois jogadores cadastrados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_a29b474e76bd5a1ec2fbe6b382602adb9}{player\+Registration}} (string \&nickname\+One, string \&nickname\+Two, \mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Faz a entrada dos nomes dos jogadores e o tratamento e checagem de erro deles \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ExecutionSystem_8cpp_ab46d065313069eeb3c6580ff515a0999}{set\+Up\+Game}} (\mbox{\hyperlink{classRegister}{Register}} \&register\+System)
+\begin{DoxyCompactList}\small\item\em Configura uma partida entre dois jogadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRegister}{Register}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ExecutionSystem_8cpp_a6a0e6600be9a01258c95f27c585fe329}{global\+Register\+System}} = nullptr
+\begin{DoxyCompactList}\small\item\em Ponteiro global para acessar o sistema de cadastro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ExecutionSystem_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}\label{ExecutionSystem_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!clearScreen@{clearScreen}}
+\index{clearScreen@{clearScreen}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{clearScreen()}{clearScreen()}}
+{\footnotesize\ttfamily void clear\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Limpa a tela do console. 
+
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00037\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00039\ \ \ \ \ system(\textcolor{stringliteral}{"{}clear"{}});}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_aa025f45ed88b3ae4067ae664cf12f853}\label{ExecutionSystem_8cpp_aa025f45ed88b3ae4067ae664cf12f853} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!handleSignal@{handleSignal}}
+\index{handleSignal@{handleSignal}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{handleSignal()}{handleSignal()}}
+{\footnotesize\ttfamily void handle\+Signal (\begin{DoxyParamCaption}\item[{int}]{signal }\end{DoxyParamCaption})}
+
+
+
+Função que salva os dados do jogo quando o programa é interrompido (Ctrl+C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal} & índice de sinal \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \{}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{ExecutionSystem_8cpp_a6a0e6600be9a01258c95f27c585fe329}{globalRegisterSystem}}\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}{clearScreen}}();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Dados\ salvos\ antes\ de\ saida\ forcada."{}}\ <<\ endl;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a87d8af85d5046e46411c601b194a1306}{saveGameData}}(*\mbox{\hyperlink{ExecutionSystem_8cpp_a6a0e6600be9a01258c95f27c585fe329}{globalRegisterSystem}});}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Erro\ ao\ salvar\ dados\ no\ encerramento:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ exit(0);\ \textcolor{comment}{//\ Encerra\ o\ programa}}
+\DoxyCodeLine{00094\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a330c2b7eb11fea838b1663f2dcc4b6b9}\label{ExecutionSystem_8cpp_a330c2b7eb11fea838b1663f2dcc4b6b9} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!initializeSignalHandler@{initializeSignalHandler}}
+\index{initializeSignalHandler@{initializeSignalHandler}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{initializeSignalHandler()}{initializeSignalHandler()}}
+{\footnotesize\ttfamily void initialize\+Signal\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa o manipulador de sinal. 
+
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ signal(SIGINT,\ \mbox{\hyperlink{ExecutionSystem_8cpp_aa025f45ed88b3ae4067ae664cf12f853}{handleSignal}});}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a2cffa2e4e141898fd7be03fc1aa35872}\label{ExecutionSystem_8cpp_a2cffa2e4e141898fd7be03fc1aa35872} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!lig4Execution@{lig4Execution}}
+\index{lig4Execution@{lig4Execution}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{lig4Execution()}{lig4Execution()}}
+{\footnotesize\ttfamily void lig4\+Execution (\begin{DoxyParamCaption}\item[{string}]{nickname\+One,  }\item[{string}]{nickname\+Two,  }\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Executa o jogo \doxylink{classLig4}{Lig4} entre dois jogadores cadastrados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname\+One} & Apelido do primeiro jogador \\
+\hline
+{\em nickname\+Two} & Apelido do segundo jogador \\
+\hline
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} para atualizar os resultados da partida nas estatísticas \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00190}{190}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00191\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00193\ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLig4}{Lig4}}\ lig4;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}{clearScreen}}();}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/\ INICIANDO\ O\ JOGO:\ Lig4\ -\/-\/-\/"{}}\ <<\ endl;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ REGRAS\ DO\ JOGO:"{}}\ <<\ endl;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}O\ jogador\ tem\ que\ alinhar\ diagonalmente,\ horizontalmente\ ou\ verticalmente\ 4\ pecas\ consecutivas\ no\ tabuleiro.\ Os\ jogadores\ alternam\ em\ turno\ para\ soltar\ as\ pecas\ em\ uma\ coluna,\ sendo\ que\ a\ peca\ ocupa\ o\ ponto\ mais\ baixo\ possivel\ na\ coluna."{}}\ <<\ endl;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ MODO\ DE\ JOGADAS:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ O\ jogador\ inserira\ primeiro\ o\ numero\ respectivo\ a\ coluna\ escolhida,\ apertara\ 'espaco'\ ou\ 'enter'\ e\ inserira\ o\ numero\ da\ coluna.\ Ao\ final\ das\ duas\ entradas,\ o\ jogador\ aperta\ 'enter'\ para\ enviar.\ As\ entradas\ devem\ ser\ numeros\ inteiros\ entre\ 0\ e\ 6."{}}\ <<\ endl;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ "{}}\ <<\ nicknameOne\ <<\ \textcolor{stringliteral}{"{}\ voce\ sera\ o\ 'X'\ e\ "{}}\ <<\ nicknameTwo\ <<\ \textcolor{stringliteral}{"{}\ voce\ sera\ o\ 'O'"{}}\ <<\ endl;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ winner\ =\ lig4.\mbox{\hyperlink{classLig4_a3ffd7db0f31225f7fd8baf68f139d4d2}{playGame}}();}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Registrar\ o\ resultado\ do\ jogo\ no\ sistema\ de\ cadastro}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'X'})}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}{result}}(nicknameOne,\ nicknameTwo,\ \textcolor{stringliteral}{"{}LIG4"{}});}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Parabens!\ Jogador\ "{}}\ <<\ nicknameOne\ <<\ \textcolor{stringliteral}{"{}\ venceu!"{}}\ <<\ endl;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'O'})}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}{result}}(nicknameTwo,\ nicknameOne,\ \textcolor{stringliteral}{"{}LIG4"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Parabens!\ Jogador\ "{}}\ <<\ nicknameTwo\ <<\ \textcolor{stringliteral}{"{}\ venceu!"{}}\ <<\ endl;}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'.'})}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00231\ \ \ \ \ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Erro\ durante\ o\ jogo\ lig4:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_ae4cf5881689d7883d7020bcb88d9b846}\label{ExecutionSystem_8cpp_ae4cf5881689d7883d7020bcb88d9b846} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!loadGameData@{loadGameData}}
+\index{loadGameData@{loadGameData}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{loadGameData()}{loadGameData()}}
+{\footnotesize\ttfamily void load\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Carrega os dados dos jogadores de um arquivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} para gerenciar os dados dos jogadores \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ folder\ =\ \textcolor{stringliteral}{"{}src/PlayerData"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ filename\ =\ folder\ +\ \textcolor{stringliteral}{"{}/dataPlayer.txt"{}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_a9b0dd2a8eb22574c192d66a71f00b8af}{Load}}(filename);}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Erro\ ao\ carregar\ dados\ do\ jogo:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a2a0e843767aeea4f433a28b9c54f573a}\label{ExecutionSystem_8cpp_a2a0e843767aeea4f433a28b9c54f573a} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!menu@{menu}}
+\index{menu@{menu}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe o menu principal com as opções que o usuário pode explorar. 
+
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00022\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ MENU\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}\ <<\ endl;}
+\DoxyCodeLine{00023\ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00024\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\ Cadastrar\ Jogador:\ CJ"{}}\ <<\ endl;}
+\DoxyCodeLine{00025\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\ Remover\ Jogador:\ RJ"{}}\ <<\ endl;}
+\DoxyCodeLine{00026\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\ Listar\ Jogadores:\ LJ"{}}\ <<\ endl;}
+\DoxyCodeLine{00027\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\ Executar\ partida:\ EP"{}}\ <<\ endl;}
+\DoxyCodeLine{00028\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/\ Finalizar\ o\ Sistema:\ FS"{}}\ <<\ endl\ <<\ endl;}
+\DoxyCodeLine{00029\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}INSIRA\ O\ COMANDO\ DESEJADO:\ "{}};}
+\DoxyCodeLine{00030\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a29b474e76bd5a1ec2fbe6b382602adb9}\label{ExecutionSystem_8cpp_a29b474e76bd5a1ec2fbe6b382602adb9} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!playerRegistration@{playerRegistration}}
+\index{playerRegistration@{playerRegistration}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{playerRegistration()}{playerRegistration()}}
+{\footnotesize\ttfamily void player\+Registration (\begin{DoxyParamCaption}\item[{string \&}]{nickname\+One,  }\item[{string \&}]{nickname\+Two,  }\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Faz a entrada dos nomes dos jogadores e o tratamento e checagem de erro deles \texorpdfstring{$\ast$}{*}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname\+One} & Apelido do primeiro jogador \\
+\hline
+{\em nickname\+Two} & Apelido do segundo jogador \\
+\hline
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} para atualizar os resultados da partida nas estatísticas \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00284}{284}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00285\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Digite\ o\ apelido\ do\ Jogador\ 1:\ "{}};}
+\DoxyCodeLine{00287\ \ \ \ \ cin\ >>\ nicknameOne;}
+\DoxyCodeLine{00288\ \ \ \ \ cin.ignore(numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00289\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Digite\ o\ apelido\ do\ Jogador\ 2:\ "{}};}
+\DoxyCodeLine{00290\ \ \ \ \ cin\ >>\ nicknameTwo;}
+\DoxyCodeLine{00291\ \ \ \ \ cin.ignore(numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ *playerOne\ =\ registerSystem.\mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{searchPlayer}}(nicknameOne);}
+\DoxyCodeLine{00294\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ *playerTwo\ =\ registerSystem.\mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{searchPlayer}}(nicknameTwo);}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{comment}{//\ chacagem\ se\ as\ entradas\ são\ válidas:}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{ExecutionSystem_8cpp_a46b108efd27e37a882ecae5a6e03800c}{validString}}(nicknameOne)\ ||\ !\mbox{\hyperlink{ExecutionSystem_8cpp_a46b108efd27e37a882ecae5a6e03800c}{validString}}(nicknameTwo))}
+\DoxyCodeLine{00297\ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ invalid\_argument(\textcolor{stringliteral}{"{}ERRO:\ O\ apelido\ dos\ jogadores\ devem\ ser\ válidos!"{}});}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordflow}{if}\ (!playerOne\ \&\&\ !playerTwo)}
+\DoxyCodeLine{00302\ \ \ \ \ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ invalid\_argument(\textcolor{stringliteral}{"{}Jogadores\ nao\ encontrados.\ Cadastre-\/os\ primeiro."{}});}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordflow}{if}\ (!playerOne)}
+\DoxyCodeLine{00307\ \ \ \ \ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ invalid\_argument(\textcolor{stringliteral}{"{}ERRO:\ Jogador\ "{}}\ +\ nicknameOne\ +\ \textcolor{stringliteral}{"{}\ nao\ foi\ encontrado.\ Cadastre-\/o\ primeiro."{}});}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00310\ \ \ \ \ \}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{if}\ (!playerTwo)}
+\DoxyCodeLine{00313\ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ invalid\_argument(\textcolor{stringliteral}{"{}ERRO:\ Jogador\ "{}}\ +\ nicknameTwo\ +\ \textcolor{stringliteral}{"{}\ nao\ foi\ encontrado.\ Cadastre-\/o\ primeiro."{}});}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
+\DoxyCodeLine{00316\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_ab5318d11ae56381b668ae35e768d8430}\label{ExecutionSystem_8cpp_ab5318d11ae56381b668ae35e768d8430} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!registerCommand@{registerCommand}}
+\index{registerCommand@{registerCommand}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{registerCommand()}{registerCommand()}}
+{\footnotesize\ttfamily void register\+Command (\begin{DoxyParamCaption}\item[{string}]{nickname,  }\item[{string}]{name,  }\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Registra um novo jogador no sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & Apelido do jogador \\
+\hline
+{\em name} & Nome do jogador \\
+\hline
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} onde o jogador será armazenado \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{ExecutionSystem_8cpp_a46b108efd27e37a882ecae5a6e03800c}{validString}}(nickname)\ ||\ !\mbox{\hyperlink{ExecutionSystem_8cpp_a46b108efd27e37a882ecae5a6e03800c}{validString}}(name))}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ invalid\_argument(\textcolor{stringliteral}{"{}ERRO:\ O\ apelido\ e\ o\ nome\ devem\ ser\ válidos!"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (registerSystem.\mbox{\hyperlink{classRegister_a864fa4442e391c58bc4dffe02ae1634c}{registerPlayer}}(nickname,\ name))}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Jogador\ "{}}\ <<\ nickname\ <<\ \textcolor{stringliteral}{"{}\ registrado\ com\ sucesso!"{}}\ <<\ endl;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ *player\ =\ registerSystem.\mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{searchPlayer}}(nickname);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>\mbox{\hyperlink{classPlayer_a1c0887a019469b3b65f7d31bd824acd1}{addGame}}(\textcolor{stringliteral}{"{}LIG4"{}});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>\mbox{\hyperlink{classPlayer_a1c0887a019469b3b65f7d31bd824acd1}{addGame}}(\textcolor{stringliteral}{"{}REVERSI"{}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ player-\/>\mbox{\hyperlink{classPlayer_a1c0887a019469b3b65f7d31bd824acd1}{addGame}}(\textcolor{stringliteral}{"{}VELHA"{}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ invalid\_argument\ \&e)}
+\DoxyCodeLine{00130\ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Argumento\ inválido:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ cerr\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a2c3fd8f8ad7c97af891768447e6e0ff0}\label{ExecutionSystem_8cpp_a2c3fd8f8ad7c97af891768447e6e0ff0} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!reversiExecution@{reversiExecution}}
+\index{reversiExecution@{reversiExecution}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{reversiExecution()}{reversiExecution()}}
+{\footnotesize\ttfamily void reversi\+Execution (\begin{DoxyParamCaption}\item[{string}]{nickname\+One,  }\item[{string}]{nickname\+Two,  }\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Executa o jogo \doxylink{classReversi}{Reversi} entre dois jogadores cadastrados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname\+One} & Apelido do primeiro jogador \\
+\hline
+{\em nickname\+Two} & Apelido do segundo jogador \\
+\hline
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} para atualizar os resultados da partida nas estatísticas \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00236}{236}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00237\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00239\ \ \ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversi;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}{clearScreen}}();}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/\ INICIANDO\ O\ JOGO:\ Reversi\ -\/-\/-\/"{}}\ <<\ endl;}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ REGRAS\ DO\ JOGO:"{}}\ <<\ endl;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}O\ jogo\ tem\ o\ objetivo\ de\ conquistar\ o\ maior\ numero\ de\ pecas\ no\ tabuleiro.\ Cada\ jogador\ sera\ o\ 'X'\ ou\ o\ 'O'\ e\ se\ alternam\ inserindo\ as\ pecas\ nos\ locais\ validos.\ Cada\ peca\ deve\ ser\ posicionada\ em\ local\ que\ pode\ capturar\ outras\ do\ adversario,\ ou\ seja,\ tem\ que\ posicionar\ na\ horizontal,\ vertical\ ou\ diagonal\ de\ alguma\ peca\ sua\ ja\ existente,\ tal\ que\ tenha\ pecas\ do\ adversario\ entre\ elas."{}};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ Caso\ nao\ tenha\ mais\ nenhuma\ jogada\ possivel\ para\ um\ jogador,\ passa\ a\ vez\ para\ o\ outro,\ se\ nenhum\ possuem\ entradas\ validas,\ o\ jogo\ acaba.\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ MODO\ DE\ JOGADAS:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ O\ jogador\ inserira\ o\ numero\ da\ coluna\ que\ deseja\ posicionar\ a\ peca\ e\ apertara\ 'enter'\ para\ enviar\ a\ jogada.\ A\ jogada\ tem\ que\ ser\ um\ numero\ inteiro\ entre\ 0\ e\ 7."{}}\ <<\ endl;}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ "{}}\ <<\ nicknameOne\ <<\ \textcolor{stringliteral}{"{}\ voce\ sera\ o\ 'X'\ e\ "{}}\ <<\ nicknameTwo\ <<\ \textcolor{stringliteral}{"{}\ voce\ sera\ o\ 'O'"{}}\ <<\ endl;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ winner\ =\ reversi.\mbox{\hyperlink{classReversi_a473597023f9c7ec40a4bb9e8e4be3591}{playGame}}();}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Registrar\ o\ resultado\ do\ jogo\ no\ sistema\ de\ cadastro}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'X'})}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}{result}}(nicknameOne,\ nicknameTwo,\ \textcolor{stringliteral}{"{}REVERSI"{}});}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Parabens!\ Jogador\ "{}}\ <<\ nicknameOne\ <<\ \textcolor{stringliteral}{"{}\ venceu!"{}}\ <<\ endl;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'O'})}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}{result}}(nicknameTwo,\ nicknameOne,\ \textcolor{stringliteral}{"{}REVERSI"{}});}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Parabens!\ Jogador\ "{}}\ <<\ nicknameTwo\ <<\ \textcolor{stringliteral}{"{}\ venceu!"{}}\ <<\ endl;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'.'})}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00279\ \ \ \ \ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Erro\ durante\ o\ jogo\ reversi:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00281\ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a87d8af85d5046e46411c601b194a1306}\label{ExecutionSystem_8cpp_a87d8af85d5046e46411c601b194a1306} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!saveGameData@{saveGameData}}
+\index{saveGameData@{saveGameData}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{saveGameData()}{saveGameData()}}
+{\footnotesize\ttfamily void save\+Game\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Carrega os dados dos jogadores em um arquivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} com os dados que precisam ser salvos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ folder\ =\ \textcolor{stringliteral}{"{}src/PlayerData"{}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ filename\ =\ folder\ +\ \textcolor{stringliteral}{"{}/dataPlayer.txt"{}};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_af3c3cfe0b6a13ad258a95fa1e5573b13}{Save}}(filename);}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Erro\ ao\ salvar\ dados\ do\ jogo:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_ab46d065313069eeb3c6580ff515a0999}\label{ExecutionSystem_8cpp_ab46d065313069eeb3c6580ff515a0999} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!setUpGame@{setUpGame}}
+\index{setUpGame@{setUpGame}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{setUpGame()}{setUpGame()}}
+{\footnotesize\ttfamily void set\+Up\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Configura uma partida entre dois jogadores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} que gerencia os jogadores \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00319}{319}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00320\ \{}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00323\ \ \ \ \ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ game;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nicknameOne;}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nicknameTwo;}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Digite\ o\ jogo\ que\ deseja\ jogar:\ 'R'\ -\/\ Reversi,\ 'L'\ -\/\ Lig4\ ou\ 'V'\ -\/\ Jogo\ da\ velha:\ "{}};}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ cin\ >>\ game;}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ cin.ignore(numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ game\ =\ toupper(game);\ \textcolor{comment}{//\ padronização}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ chamando\ cada\ jogo;}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (game\ ==\ \textcolor{charliteral}{'R'})}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a29b474e76bd5a1ec2fbe6b382602adb9}{playerRegistration}}(nicknameOne,\ nicknameTwo,\ registerSystem);}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a2c3fd8f8ad7c97af891768447e6e0ff0}{reversiExecution}}(nicknameOne,\ nicknameTwo,\ registerSystem);}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (game\ ==\ \textcolor{charliteral}{'L'})}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a29b474e76bd5a1ec2fbe6b382602adb9}{playerRegistration}}(nicknameOne,\ nicknameTwo,\ registerSystem);}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a2cffa2e4e141898fd7be03fc1aa35872}{lig4Execution}}(nicknameOne,\ nicknameTwo,\ registerSystem);}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (game\ ==\ \textcolor{charliteral}{'V'})}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a29b474e76bd5a1ec2fbe6b382602adb9}{playerRegistration}}(nicknameOne,\ nicknameTwo,\ registerSystem);}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a60a06a90be8fee90c3561fbe1c1da472}{velhaExecution}}(nicknameOne,\ nicknameTwo,\ registerSystem);}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ invalid\_argument(\textcolor{stringliteral}{"{}ERRO:\ Jogo\ invalido!\ Tente\ novamente,\ digite\ R,\ L\ ou\ V"{}});}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00353\ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ invalid\_argument\ \&e)}
+\DoxyCodeLine{00355\ \ \ \ \ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Argumento\ invalido:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00357\ \ \ \ \ \}}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00359\ \ \ \ \ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Erro\ inesperado,\ tente\ novamente\ :\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00361\ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a46b108efd27e37a882ecae5a6e03800c}\label{ExecutionSystem_8cpp_a46b108efd27e37a882ecae5a6e03800c} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!validString@{validString}}
+\index{validString@{validString}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{validString()}{validString()}}
+{\footnotesize\ttfamily bool valid\+String (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Valida se é uma string válida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String a ser validada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna True se a string for válida, ou False caso contrário 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (str.empty())}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{ExecutionSystem_8cpp_a60a06a90be8fee90c3561fbe1c1da472}\label{ExecutionSystem_8cpp_a60a06a90be8fee90c3561fbe1c1da472} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!velhaExecution@{velhaExecution}}
+\index{velhaExecution@{velhaExecution}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{velhaExecution()}{velhaExecution()}}
+{\footnotesize\ttfamily void velha\+Execution (\begin{DoxyParamCaption}\item[{string}]{nickname\+One,  }\item[{string}]{nickname\+Two,  }\item[{\mbox{\hyperlink{classRegister}{Register}} \&}]{register\+System }\end{DoxyParamCaption})}
+
+
+
+Executa o jogo da velha entre dois jogadores cadastrados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname\+One} & Apelido do primeiro jogador \\
+\hline
+{\em nickname\+Two} & Apelido do segundo jogador \\
+\hline
+{\em register\+System} & Objeto do tipo \doxylink{classRegister}{Register} para atualizar os resultados da partida nas estatísticas \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00142}{142}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classJogoDaVelha}{JogoDaVelha}}\ velha;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ExecutionSystem_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}{clearScreen}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/\ INICIANDO\ O\ JOGO:\ Jogo\ da\ Velha\ -\/-\/-\/"{}}\ <<\ endl;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ REGRAS\ DO\ JOGO:"{}}\ <<\ endl;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}O\ jogo\ eh\ disputado\ em\ um\ tabuleiro\ 3x3.\ Cada\ Jogador\ ira\ escolher\ uma\ posicao\ para\ marcar\ 'X'\ ou\ 'O',\ se\ o\ Jogador\ alinhar\ 3\ simbolos\ 'O'\ ou\ 3\ simbolos\ 'X'\ na\ diagonal,\ vertical\ ou\ horizontal,\ ele\ ganha."{}}\ <<\ endl;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ MODO\ DE\ JOGADAS:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ O\ jogador\ inserira\ primeiro\ o\ numero\ respectivo\ a\ coluna\ escolhida,\ apertara\ 'espaco'\ ou\ 'enter'\ e\ inserira\ o\ numero\ da\ coluna.\ Ao\ final\ das\ duas\ entradas,\ o\ jogador\ aperta\ 'enter'\ para\ enviar.\ As\ entradas\ devem\ ser\ numeros\ inteiros\ entre\ 0\ e\ 2."{}}\ <<\ endl;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}.\ "{}}\ <<\ nicknameOne\ <<\ \textcolor{stringliteral}{"{}\ voce\ sera\ o\ 'X'\ e\ "{}}\ <<\ nicknameTwo\ <<\ \textcolor{stringliteral}{"{}\ voce\ sera\ o\ 'O'"{}}\ <<\ endl;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ winner\ =\ velha.\mbox{\hyperlink{classJogoDaVelha_a775a59df0309187559b42a179cb0a1ab}{playGame}}();}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Registrar\ o\ resultado\ do\ jogo\ no\ sistema\ de\ cadastro}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'X'})}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}{result}}(nicknameOne,\ nicknameTwo,\ \textcolor{stringliteral}{"{}VELHA"{}});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Parabens!\ Jogador\ "{}}\ <<\ nicknameOne\ <<\ \textcolor{stringliteral}{"{}\ venceu!"{}}\ <<\ endl;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'O'})}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ registerSystem.\mbox{\hyperlink{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}{result}}(nicknameTwo,\ nicknameOne,\ \textcolor{stringliteral}{"{}VELHA"{}});}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Parabens!\ Jogador\ "{}}\ <<\ nicknameTwo\ <<\ \textcolor{stringliteral}{"{}\ venceu!"{}}\ <<\ endl;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (winner\ ==\ \textcolor{charliteral}{'.'})}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ exception\ \&e)}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}Erro\ durante\ o\ jogo\ da\ velha:\ "{}}\ <<\ e.what()\ <<\ endl;}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{ExecutionSystem_8cpp_a6a0e6600be9a01258c95f27c585fe329}\label{ExecutionSystem_8cpp_a6a0e6600be9a01258c95f27c585fe329} 
+\index{ExecutionSystem.cpp@{ExecutionSystem.cpp}!globalRegisterSystem@{globalRegisterSystem}}
+\index{globalRegisterSystem@{globalRegisterSystem}!ExecutionSystem.cpp@{ExecutionSystem.cpp}}
+\doxysubsubsection{\texorpdfstring{globalRegisterSystem}{globalRegisterSystem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRegister}{Register}}\texorpdfstring{$\ast$}{*} global\+Register\+System = nullptr}
+
+
+
+Ponteiro global para acessar o sistema de cadastro. 
+
+
+
+Definition at line \mbox{\hyperlink{ExecutionSystem_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{ExecutionSystem_8cpp_source}{Execution\+System.\+cpp}}.
+

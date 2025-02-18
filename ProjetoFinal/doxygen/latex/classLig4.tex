@@ -1,0 +1,401 @@
+\doxysection{Lig4 Class Reference}
+\hypertarget{classLig4}{}\label{classLig4}\index{Lig4@{Lig4}}
+
+
+A classe \doxylink{classLig4}{Lig4} representa o jogo \doxylink{classLig4}{Lig4}, derivada de \doxylink{classBaseGame}{Base\+Game}, contendo métodos para lidar com jogadas, checando ganhadores e controlando o fluxo de jogo e de jogadas.  
+
+
+
+
+{\ttfamily \#include $<$Lig4.\+hpp$>$}
+
+Inheritance diagram for Lig4\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLig4}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLig4_adffdeddf3d20829f752913801554126d}{Lig4}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão para inicializar o jogo. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classLig4_add1bf78f99caaf523113e7f4cf843744}{\texorpdfstring{$\sim$}{\string~}\+Lig4}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor virtual. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classLig4_a064d721458fd1155f4d5b24fa51bf720}{player\+Move}} () override
+\begin{DoxyCompactList}\small\item\em Obtém o movimento do jogador por coordenada. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_a707ff4fa8e93a5d7add79d4272a9d4d8}{validate\+Move}} (int row, int col) override
+\begin{DoxyCompactList}\small\item\em Valida se o movimento inserido é válido conforme as regras do jogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLig4_aba0caa46f9b261076fbdf9477985d839}{make\+Move}} (int row, int col, char player) override
+\begin{DoxyCompactList}\small\item\em Aplica o movimento no tabuleiro, atualizando o tabuleiro com o símbolo do jogador atual (\textquotesingle{}X\textquotesingle{} ou \textquotesingle{}O\textquotesingle{}). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_ae0199b93fab6490f2be5d8adf3c8b3b1}{check\+Winner}} (char player) override
+\begin{DoxyCompactList}\small\item\em Verifica se um jogador venceu o jogo, conforme as regras do jogo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_ada4e24cb431c8fbbbcc1dcddcf49e9ab}{check\+Draw}} ()
+\begin{DoxyCompactList}\small\item\em Verifica se o jogo terminou em empate, conforme as regras do jogo. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classLig4_a3ffd7db0f31225f7fd8baf68f139d4d2}{play\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Controla o fluxo principal do jogo, gerenciando a partida entre os jogadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseGame}{Base\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBaseGame_a80281a1ac15a6a1abbabed1f5e132c21}{Base\+Game}} (int \+\_\+rows, int \+\_\+cols)
+\begin{DoxyCompactList}\small\item\em construtor da classe base\+Game inicializando as linhas e colunas \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classBaseGame_a99743ef9d33d73ffe6c8a849f8ea323d}{\texorpdfstring{$\sim$}{\string~}\+Base\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor virtual de \doxylink{classBaseGame}{Base\+Game}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBaseGame_a48e688c42889aae8aef3552846ea7c33}{display\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Exibe o tabuleiro. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBaseGame_a3a1d041be6c826827994a16db393166d}{reset\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Limpa o tabuleiro para o estado inicial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseGame}{Base\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classBaseGame_a4e3265867448fdfac2aac4349da4cd07}{rows}}
+\begin{DoxyCompactList}\small\item\em linhas do tabuleiro \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}}
+\begin{DoxyCompactList}\small\item\em colunas do tabuleiro \end{DoxyCompactList}\item 
+vector$<$ vector$<$ char $>$ $>$ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A classe \doxylink{classLig4}{Lig4} representa o jogo \doxylink{classLig4}{Lig4}, derivada de \doxylink{classBaseGame}{Base\+Game}, contendo métodos para lidar com jogadas, checando ganhadores e controlando o fluxo de jogo e de jogadas. 
+
+Definition at line \mbox{\hyperlink{Lig4_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{Lig4_8hpp_source}{Lig4.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLig4_adffdeddf3d20829f752913801554126d}\label{classLig4_adffdeddf3d20829f752913801554126d} 
+\index{Lig4@{Lig4}!Lig4@{Lig4}}
+\index{Lig4@{Lig4}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{Lig4()}{Lig4()}}
+{\footnotesize\ttfamily Lig4\+::\+Lig4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construtor padrão para inicializar o jogo. 
+
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ :\ \mbox{\hyperlink{classBaseGame}{BaseGame}}(6,\ 7),\ currentPlayer(\textcolor{charliteral}{'X'})\ \{\}}
+
+\end{DoxyCode}
+\Hypertarget{classLig4_add1bf78f99caaf523113e7f4cf843744}\label{classLig4_add1bf78f99caaf523113e7f4cf843744} 
+\index{Lig4@{Lig4}!````~Lig4@{\texorpdfstring{$\sim$}{\string~}Lig4}}
+\index{````~Lig4@{\texorpdfstring{$\sim$}{\string~}Lig4}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Lig4()}{\string~Lig4()}}
+{\footnotesize\ttfamily Lig4\+::\texorpdfstring{$\sim$}{\string~}\+Lig4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor virtual. 
+
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLig4_ada4e24cb431c8fbbbcc1dcddcf49e9ab}\label{classLig4_ada4e24cb431c8fbbbcc1dcddcf49e9ab} 
+\index{Lig4@{Lig4}!checkDraw@{checkDraw}}
+\index{checkDraw@{checkDraw}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{checkDraw()}{checkDraw()}}
+{\footnotesize\ttfamily bool Lig4\+::check\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Verifica se o jogo terminou em empate, conforme as regras do jogo. 
+
+\begin{DoxyReturn}{Returns}
+Retorna True se o jogo terminou em empate, ou False caso contrário 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{classBaseGame_a4e3265867448fdfac2aac4349da4cd07}{rows}};\ ++r)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}};\ ++c)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c]\ ==\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLig4_ae0199b93fab6490f2be5d8adf3c8b3b1}\label{classLig4_ae0199b93fab6490f2be5d8adf3c8b3b1} 
+\index{Lig4@{Lig4}!checkWinner@{checkWinner}}
+\index{checkWinner@{checkWinner}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{checkWinner()}{checkWinner()}}
+{\footnotesize\ttfamily bool Lig4\+::check\+Winner (\begin{DoxyParamCaption}\item[{char}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifica se um jogador venceu o jogo, conforme as regras do jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Jogador a ser verificado (\textquotesingle{}X\textquotesingle{} ou \textquotesingle{}O\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna True se o jogador venceu, ou False caso contrário 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBaseGame_adec1e801dab6460d09037f26e858f9dd}{Base\+Game}}.
+
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Horizontal}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{classBaseGame_a4e3265867448fdfac2aac4349da4cd07}{rows}};\ ++r)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <=\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}}\ -\/\ 4;\ ++c)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c\ +\ 1]\ ==\ player\ \&\&}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c\ +\ 2]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c\ +\ 3]\ ==\ player)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Vertical}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}};\ ++c)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <=\ \mbox{\hyperlink{classBaseGame_a4e3265867448fdfac2aac4349da4cd07}{rows}}\ -\/\ 4;\ ++r)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ +\ 1][c]\ ==\ player\ \&\&}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ +\ 2][c]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ +\ 3][c]\ ==\ player)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Diagonal\ (descendo)}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <=\ \mbox{\hyperlink{classBaseGame_a4e3265867448fdfac2aac4349da4cd07}{rows}}\ -\/\ 4;\ ++r)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <=\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}}\ -\/\ 4;\ ++c)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ +\ 1][c\ +\ 1]\ ==\ player\ \&\&}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ +\ 2][c\ +\ 2]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ +\ 3][c\ +\ 3]\ ==\ player)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ Diagonal\ (subindo)}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 3;\ r\ <\ \mbox{\hyperlink{classBaseGame_a4e3265867448fdfac2aac4349da4cd07}{rows}};\ ++r)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <=\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}}\ -\/\ 4;\ ++c)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][c]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ -\/\ 1][c\ +\ 1]\ ==\ player\ \&\&}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ -\/\ 2][c\ +\ 2]\ ==\ player\ \&\&\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r\ -\/\ 3][c\ +\ 3]\ ==\ player)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00107\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLig4_aba0caa46f9b261076fbdf9477985d839}\label{classLig4_aba0caa46f9b261076fbdf9477985d839} 
+\index{Lig4@{Lig4}!makeMove@{makeMove}}
+\index{makeMove@{makeMove}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{makeMove()}{makeMove()}}
+{\footnotesize\ttfamily void Lig4\+::make\+Move (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{char}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Aplica o movimento no tabuleiro, atualizando o tabuleiro com o símbolo do jogador atual (\textquotesingle{}X\textquotesingle{} ou \textquotesingle{}O\textquotesingle{}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Linha do movimento \\
+\hline
+{\em col} & Coluna do movimento \\
+\hline
+{\em player} & Jogador que está fazendo a jogada \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classBaseGame_abf9c39ea110171a9c19deb73a79f7126}{Base\+Game}}.
+
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ \mbox{\hyperlink{classBaseGame_a4e3265867448fdfac2aac4349da4cd07}{rows}}\ -\/\ 1;\ r\ >=\ 0;\ -\/-\/r)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][col]\ ==\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[r][col]\ =\ player;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLig4_a064d721458fd1155f4d5b24fa51bf720}\label{classLig4_a064d721458fd1155f4d5b24fa51bf720} 
+\index{Lig4@{Lig4}!playerMove@{playerMove}}
+\index{playerMove@{playerMove}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{playerMove()}{playerMove()}}
+{\footnotesize\ttfamily pair$<$ int, int $>$ Lig4\+::player\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o movimento do jogador por coordenada. 
+
+\begin{DoxyReturn}{Returns}
+Um par de inteiros representando a linha e a coluna 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Nesse caso, como as peças são empilhadas, só a coluna que o jogador deseja que importa na escolha 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classBaseGame_a128d76b355b0f34c142d762625c1bcc2}{Base\+Game}}.
+
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ col;}
+\DoxyCodeLine{00017\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Jogador\ "{}}\ <<\ currentPlayer\ <<\ \textcolor{stringliteral}{"{},\ escolha\ uma\ coluna\ (0\ a\ "{}}\ <<\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}}\ -\/\ 1\ <<\ \textcolor{stringliteral}{"{}):\ "{}};}
+\DoxyCodeLine{00018\ \ \ \ \ cin\ >>\ col;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ Valida\ entrada\ não-\/inteira}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (cin.fail())\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ cin.clear();\ \textcolor{comment}{//\ Limpa\ o\ estado\ de\ erro}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ cin.ignore(numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});\ \textcolor{comment}{//\ Descarta\ a\ entrada\ inválida}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ col\ =\ -\/1;\ \textcolor{comment}{//\ Define\ um\ valor\ inválido}}
+\DoxyCodeLine{00024\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (col\ >=\ 0\ \&\&\ col\ <\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}})\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ cin.ignore(numeric\_limits<streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});\ \ \textcolor{comment}{//\ Descarta\ qualquer\ coisa\ após\ o\ primeiro\ número}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ \{0,\ col\};\ \textcolor{comment}{//\ Apenas\ a\ coluna\ importa}}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLig4_a3ffd7db0f31225f7fd8baf68f139d4d2}\label{classLig4_a3ffd7db0f31225f7fd8baf68f139d4d2} 
+\index{Lig4@{Lig4}!playGame@{playGame}}
+\index{playGame@{playGame}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{playGame()}{playGame()}}
+{\footnotesize\ttfamily char Lig4\+::play\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Controla o fluxo principal do jogo, gerenciando a partida entre os jogadores. 
+
+\begin{DoxyReturn}{Returns}
+O símbolo do jogador vencedor (\textquotesingle{}X\textquotesingle{} ou \textquotesingle{}O\textquotesingle{}) ou um ponto (\textquotesingle{}.\textquotesingle{}) no caso de empate 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classBaseGame_a3a1d041be6c826827994a16db393166d}{resetGame}}();}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{classBaseGame_a48e688c42889aae8aef3552846ea7c33}{displayBoard}}();}
+\DoxyCodeLine{00112\ \ \ \ \ cout<<endl;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ pair<int,\ int>\ move\ =\ \mbox{\hyperlink{classLig4_a064d721458fd1155f4d5b24fa51bf720}{playerMove}}();\ \ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ move.first;\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ col\ =\ move.second;\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classLig4_a707ff4fa8e93a5d7add79d4272a9d4d8}{validateMove}}(row,\ col))\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLig4_aba0caa46f9b261076fbdf9477985d839}{makeMove}}(row,\ col,\ currentPlayer);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBaseGame_a48e688c42889aae8aef3552846ea7c33}{displayBoard}}();}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ cout<<endl;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLig4_ae0199b93fab6490f2be5d8adf3c8b3b1}{checkWinner}}(currentPlayer))\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ currentPlayer;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLig4_ada4e24cb431c8fbbbcc1dcddcf49e9ab}{checkDraw}}())\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<endl;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<\textcolor{stringliteral}{"{}O\ jogo\ empatou!"{}}<<endl;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ cout<<endl;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{charliteral}{'.'};\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ currentPlayer\ =\ (currentPlayer\ ==\ \textcolor{charliteral}{'X'})\ ?\ \textcolor{charliteral}{'O'}\ :\ \textcolor{stringliteral}{'X'};}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classLig4_a707ff4fa8e93a5d7add79d4272a9d4d8}\label{classLig4_a707ff4fa8e93a5d7add79d4272a9d4d8} 
+\index{Lig4@{Lig4}!validateMove@{validateMove}}
+\index{validateMove@{validateMove}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{validateMove()}{validateMove()}}
+{\footnotesize\ttfamily bool Lig4\+::validate\+Move (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Valida se o movimento inserido é válido conforme as regras do jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Linha do movimento \\
+\hline
+{\em col} & Coluna do movimento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna True se o movimento for válido, ou False caso contrário 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classBaseGame_a9a80bb57409fccf3b2dbecc9151e2c47}{Base\+Game}}.
+
+
+
+Definition at line \mbox{\hyperlink{Lig4_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{Lig4_8cpp_source}{Lig4.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ cout<<endl;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ !=\ 0)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ apenas\ a\ linha\ inicial\ eh\ permitida\ no\ Lig4!"{}}\ <<\ endl;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ cout<<endl;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (col\ <\ 0\ ||\ col\ >=\ \mbox{\hyperlink{classBaseGame_a71b094d13fffe3fd29417c7411d8196c}{cols}}\ ||\ \mbox{\hyperlink{classBaseGame_af6dbace55f7b95642d553ffeab706a42}{board}}[0][col]\ !=\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ jogada\ invalida!"{}}\ <<\ endl;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ cout<<endl;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Lig4_8hpp}{Lig4.\+hpp}}\item 
+src/\mbox{\hyperlink{Lig4_8cpp}{Lig4.\+cpp}}\end{DoxyCompactItemize}

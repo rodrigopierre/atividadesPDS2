@@ -1,0 +1,40 @@
+\doxysection{Jogo\+Da\+Velha.\+hpp}
+\hypertarget{JogoDaVelha_8hpp_source}{}\label{JogoDaVelha_8hpp_source}\index{include/JogoDaVelha.hpp@{include/JogoDaVelha.hpp}}
+\mbox{\hyperlink{JogoDaVelha_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ JOGODAVELHA\_H}}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ JOGODAVELHA\_H}}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BaseGame_8hpp}{BaseGame.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <utility>}\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00013}\mbox{\hyperlink{classJogoDaVelha}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classJogoDaVelha}{JogoDaVelha}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBaseGame}{BaseGame}}}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00015}00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{char}\ currentPlayer;\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00018}00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{classJogoDaVelha_a4cd8634f2b9f754fae92e2e6bc897c19}{JogoDaVelha}}();}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classJogoDaVelha_af290749c1d368fc48f12ae3cf029aeb1}{\string~JogoDaVelha}}();}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJogoDaVelha_a9d656bc6233ec345e734f1d492a868ba}{displayBoard}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00040}00040\ \ \ \ \ pair<int,\ int>\ \mbox{\hyperlink{classJogoDaVelha_ad6be8a7bab75f08bf246b7ac6fe9f088}{playerMove}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJogoDaVelha_a6d171fcc40c2524fa44dd7701de2b0f4}{validateMove}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classJogoDaVelha_a2e32ef072a1e4dec651837b978493337}{makeMove}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{char}\ player)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJogoDaVelha_a1bca11a4f7453fcef3e6cb4126a2acda}{checkWinner}}(\textcolor{keywordtype}{char}\ player)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00067}00067\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classJogoDaVelha_a6eca5b48ca881364a5b40cb3ca49f501}{checkDraw}}();}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00074}00074\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classJogoDaVelha_a775a59df0309187559b42a179cb0a1ab}{playGame}}();}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00081}00081\ \};}
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{JogoDaVelha_8hpp_source_l00083}00083\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

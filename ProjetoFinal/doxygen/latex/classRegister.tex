@@ -1,0 +1,409 @@
+\doxysection{Register Class Reference}
+\hypertarget{classRegister}{}\label{classRegister}\index{Register@{Register}}
+
+
+A classe \doxylink{classRegister}{Register} é para cadastrar, buscar, remover e listar jogadores, salvando as informações em um arquivo, e carregando as informações dele também.  
+
+
+
+
+{\ttfamily \#include $<$Cadastro.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{search\+Player}} (const string \&nickname)
+\begin{DoxyCompactList}\small\item\em Busca um jogador pelo apelido. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRegister_a864fa4442e391c58bc4dffe02ae1634c}{register\+Player}} (const string \&nickname, const string \&name)
+\begin{DoxyCompactList}\small\item\em Registra um novo jogador. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRegister_a54e825bc7965440f3c834d952edd54c3}{remove\+Player}} (const string \&nickname)
+\begin{DoxyCompactList}\small\item\em Remove um jogador pelo apelido. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegister_af3c3cfe0b6a13ad258a95fa1e5573b13}{Save}} (const string \&filename) const
+\begin{DoxyCompactList}\small\item\em Salva os dados dos jogadores em um arquivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRegister_a9b0dd2a8eb22574c192d66a71f00b8af}{Load}} (const string \&filename)
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos jogadores de um arquivo. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{classRegister_af791371751d2e33bc4adebf2489df9ef}{list\+Players}} (char a) const
+\begin{DoxyCompactList}\small\item\em Lista os apelidos dos jogadores que começam com uma letra específica. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}{result}} (const string \&winner\+Nickname, const string \&loser\+Nickname, const string \&game)
+\begin{DoxyCompactList}\small\item\em Registra o resultado de uma partida entre dois jogadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRegister_abecee9853804f1a172eb784b040941f8}{print\+Players}} (const vector$<$ string $>$ \&list, char a) const
+\begin{DoxyCompactList}\small\item\em Imprime os jogadores listados no console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \mbox{\hyperlink{classPlayer}{Player}} $>$ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}}
+\begin{DoxyCompactList}\small\item\em Mapa de jogadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A classe \doxylink{classRegister}{Register} é para cadastrar, buscar, remover e listar jogadores, salvando as informações em um arquivo, e carregando as informações dele também. 
+
+Definition at line \mbox{\hyperlink{Cadastro_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{Cadastro_8hpp_source}{Cadastro.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRegister_af791371751d2e33bc4adebf2489df9ef}\label{classRegister_af791371751d2e33bc4adebf2489df9ef} 
+\index{Register@{Register}!listPlayers@{listPlayers}}
+\index{listPlayers@{listPlayers}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{listPlayers()}{listPlayers()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Register\+::list\+Players (\begin{DoxyParamCaption}\item[{char}]{a }\end{DoxyParamCaption}) const}
+
+
+
+Lista os apelidos dos jogadores que começam com uma letra específica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Letra inicial para ser filtrada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vetor de apelidos que atendem ao filtro 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Esse método não é chamado diretamente, é usado por outro método como um auxiliar 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00167}{167}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ vector<string>\ list;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ entry\ :\ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}})\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nickname\ =\ entry.first;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player\ =\ entry.second;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (toupper(a)\ ==\ \textcolor{charliteral}{'A'})\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ list.push\_back(player.\mbox{\hyperlink{classPlayer_aa86fde12c182523556d9348c5d338a83}{getNickname}}());}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (toupper(a)\ ==\ \textcolor{charliteral}{'N'})\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ list.push\_back(player.\mbox{\hyperlink{classPlayer_a4939193fc637f75bf7a11118334dae7e}{getName}}());}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Opcao\ invalida,\ tente\ novamente!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{if}\ (list.empty())\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Ainda\ nao\ ha\ jogadores\ cadastrados!"{}}\ <<\ endl;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ sort(list.begin(),\ list.end());}
+\DoxyCodeLine{00185\ \ \ \ \ \mbox{\hyperlink{classRegister_abecee9853804f1a172eb784b040941f8}{printPlayers}}(list,\ toupper(a));}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{return}\ list;}
+\DoxyCodeLine{00187\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRegister_a9b0dd2a8eb22574c192d66a71f00b8af}\label{classRegister_a9b0dd2a8eb22574c192d66a71f00b8af} 
+\index{Register@{Register}!Load@{Load}}
+\index{Load@{Load}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void Register\+::\+Load (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Carrega os dados dos jogadores de um arquivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nome do arquivo de onde vai ser carregado os dados dos jogadores \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Verifica\ se\ o\ arquivo\ existe\ antes\ de\ tentar\ abri-\/lo}}
+\DoxyCodeLine{00111\ \ \ \ \ ifstream\ test(file);}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (!test.is\_open())\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ test.close();\ \textcolor{comment}{//\ Fechar\ após\ verificar\ a\ existência}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ ifstream\ in(file);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (!in.is\_open())\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}ERRO:\ Nao\ foi\ possível\ abrir\ o\ arquivo\ para\ carregar!"{}}\ <<\ endl;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{string}\ nickname,\ name;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{while}\ (in\ >>\ nickname\ >>\ name)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player(nickname,\ name);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ game;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ wins,\ losses;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (in\ >>\ game\ >>\ wins\ >>\ losses)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ player.stats[game]\ =\ \{wins,\ losses\};}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in.peek()\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}}[nickname]\ =\ player;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ in.close();}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRegister_abecee9853804f1a172eb784b040941f8}\label{classRegister_abecee9853804f1a172eb784b040941f8} 
+\index{Register@{Register}!printPlayers@{printPlayers}}
+\index{printPlayers@{printPlayers}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{printPlayers()}{printPlayers()}}
+{\footnotesize\ttfamily void Register\+::print\+Players (\begin{DoxyParamCaption}\item[{const vector$<$ string $>$ \&}]{list,  }\item[{char}]{a }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Imprime os jogadores listados no console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Vetor de apelidos de jogadores \\
+\hline
+{\em a} & Letra inicial usada como filtro \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Usa o método list\+Players. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ entry\ :\ list)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ playerEntry\ :\ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}})\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player\ =\ playerEntry.second;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (toupper(a)\ ==\ \textcolor{charliteral}{'A'}\ \&\&\ entry\ ==\ player.\mbox{\hyperlink{classPlayer_aa86fde12c182523556d9348c5d338a83}{getNickname}}())\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ player.\mbox{\hyperlink{classPlayer_a2d16efac0124526072b2b6f7cb3189aa}{toString}}()\ <<\ std::endl;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (toupper(a)\ ==\ \textcolor{charliteral}{'N'}\ \&\&\ entry\ ==\ player.\mbox{\hyperlink{classPlayer_a4939193fc637f75bf7a11118334dae7e}{getName}}())\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ player.\mbox{\hyperlink{classPlayer_a2d16efac0124526072b2b6f7cb3189aa}{toString}}()\ <<\ std::endl;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRegister_a864fa4442e391c58bc4dffe02ae1634c}\label{classRegister_a864fa4442e391c58bc4dffe02ae1634c} 
+\index{Register@{Register}!registerPlayer@{registerPlayer}}
+\index{registerPlayer@{registerPlayer}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{registerPlayer()}{registerPlayer()}}
+{\footnotesize\ttfamily bool Register\+::register\+Player (\begin{DoxyParamCaption}\item[{const string \&}]{nickname,  }\item[{const string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Registra um novo jogador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & Apelido do jogador \\
+\hline
+{\em name} & Nome do jogador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna True se o jogador foi registrado com sucesso, ou False se já existe 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{searchPlayer}}(nickname))\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ Jogador\ ja\ cadastrado,\ tente\ novamente!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}}.emplace(nickname,\ \mbox{\hyperlink{classPlayer}{Player}}(nickname,\ name));}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRegister_a54e825bc7965440f3c834d952edd54c3}\label{classRegister_a54e825bc7965440f3c834d952edd54c3} 
+\index{Register@{Register}!removePlayer@{removePlayer}}
+\index{removePlayer@{removePlayer}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{removePlayer()}{removePlayer()}}
+{\footnotesize\ttfamily bool Register\+::remove\+Player (\begin{DoxyParamCaption}\item[{const string \&}]{nickname }\end{DoxyParamCaption})}
+
+
+
+Remove um jogador pelo apelido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & Apelido do jogador a ser removido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna True se o jogador foi removido, ou False se não foi encontrado 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{searchPlayer}}(nickname))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Jogador\ nao\ encontrado,\ tente\ novamente!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}}.erase(nickname);}
+\DoxyCodeLine{00083\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Jogador\ "{}}\ <<\ nickname\ <<\ \textcolor{stringliteral}{"{}\ removido\ com\ sucesso!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00085\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d}\label{classRegister_a3fc4b21c6017dd7a9914fbf8f50a603d} 
+\index{Register@{Register}!result@{result}}
+\index{result@{result}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily bool Register\+::result (\begin{DoxyParamCaption}\item[{const string \&}]{winner\+Nickname,  }\item[{const string \&}]{loser\+Nickname,  }\item[{const string \&}]{game }\end{DoxyParamCaption})}
+
+
+
+Registra o resultado de uma partida entre dois jogadores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em winner\+Nickname} & Apelido do jogador vencedor \\
+\hline
+{\em loser\+Nickname} & Apelido do jogador perdedor \\
+\hline
+{\em game} & Nome do jogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna True se o resultado foi registrado com sucesso, ou False caso contrário 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Usa o método add\+Win e o metodo add\+Loss 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ winner\ =\ \mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{searchPlayer}}(winnerNickname);}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ loser\ =\ \mbox{\hyperlink{classRegister_a32ce168649016bcae06271f80e2f607e}{searchPlayer}}(loserNickname);}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (!winner\ ||\ !loser)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Jogador\ não\ encontrado,\ tente\ novamente!"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ winner-\/>\mbox{\hyperlink{classPlayer_aa040e6fc71bde1fa0aa92362b15d0e24}{addWin}}(game);}
+\DoxyCodeLine{00150\ \ \ \ \ loser-\/>\mbox{\hyperlink{classPlayer_aaaf46a3feb4b29512bd2d2d271c298d0}{addLoss}}(game);}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00152\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRegister_af3c3cfe0b6a13ad258a95fa1e5573b13}\label{classRegister_af3c3cfe0b6a13ad258a95fa1e5573b13} 
+\index{Register@{Register}!Save@{Save}}
+\index{Save@{Save}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Register\+::\+Save (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption}) const}
+
+
+
+Salva os dados dos jogadores em um arquivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nome do arquivo de destino dos dados dos jogadores \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ ofstream\ out(file);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (!out)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}ERRO:\ Nao\ foi\ possivel\ abrir\ o\ arquivo\ para\ salvar!"{}}\ <<\ endl;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ entry\ :\ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}})\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ nickname\ =\ entry.first;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player\ =\ entry.second;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ out\ <<\ player.\mbox{\hyperlink{classPlayer_aa86fde12c182523556d9348c5d338a83}{getNickname}}()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ player.\mbox{\hyperlink{classPlayer_a4939193fc637f75bf7a11118334dae7e}{getName}}();}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ statEntry\ :\ player.stats)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ statEntry.first\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ statEntry.second.first\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ statEntry.second.second;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ }
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ out.close();}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classRegister_a32ce168649016bcae06271f80e2f607e}\label{classRegister_a32ce168649016bcae06271f80e2f607e} 
+\index{Register@{Register}!searchPlayer@{searchPlayer}}
+\index{searchPlayer@{searchPlayer}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{searchPlayer()}{searchPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} Register\+::search\+Player (\begin{DoxyParamCaption}\item[{const string \&}]{nickname }\end{DoxyParamCaption})}
+
+
+
+Busca um jogador pelo apelido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nickname} & Apelido do jogador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador, ou nullptr se não for encontrado 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{Cadastro_8cpp_source}{Cadastro.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}}.find(nickname);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}(it\ ==\ \mbox{\hyperlink{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}{players}}.end())\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Jogador\ "{}\ <<\ nickname\ <<"{}\ não\ encontrado,\ tente\ novamente!"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&it-\/>second;}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classRegister_a3aa2b767fcffc5dd92de3305304aaec5}\label{classRegister_a3aa2b767fcffc5dd92de3305304aaec5} 
+\index{Register@{Register}!players@{players}}
+\index{players@{players}!Register@{Register}}
+\doxysubsubsection{\texorpdfstring{players}{players}}
+{\footnotesize\ttfamily map$<$string, \mbox{\hyperlink{classPlayer}{Player}}$>$ Register\+::players\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Mapa de jogadores. 
+
+
+
+Definition at line \mbox{\hyperlink{Cadastro_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{Cadastro_8hpp_source}{Cadastro.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Cadastro_8hpp}{Cadastro.\+hpp}}\item 
+src/\mbox{\hyperlink{Cadastro_8cpp}{Cadastro.\+cpp}}\end{DoxyCompactItemize}
